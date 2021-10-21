@@ -1,0 +1,106 @@
+body {
+  background-color: #f3f6fc;
+  overflow-x: hidden !important;
+}
+
+.site-hero {
+  display: none;
+  height: 500px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: opacity(0.8);
+}
+
+.site-hero__title {
+  padding-top: 140px
+}
+
+.card {
+  border-radius: 14px !important;
+  box-shadow: 0px 10px 30px rgb(209 213 223 / 50%) !important;
+}
+/*
+.book-img {
+  box-shadow: 0px 15px 30px rgb(209 213 223 / 100%) !important;
+} */
+
+.book-country {
+  display: flex;
+  align-items: center;
+  padding-top: 5px;
+}
+
+.book-country::before {
+  display: block;
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 5px;
+}
+
+.book-page {
+  color: #807177 !important;
+}
+
+.carousel__img {
+  height: 500px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: opacity(0.8);
+}
+
+.book-link {
+  display: flex;
+  align-items: end;
+  }
+
+.book-link::after {
+  display: block;
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-left: 5px;
+}
+
+.btn-bookmark {
+  display: block;
+  width: 27px;
+  height: 27px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: 0;
+  background-color: #fff;
+}
+
+
+@media only screen and (max-width: 575px) {
+  .row {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .card {
+    /* display: flex; */
+    flex-direction: row !important;
+    /* white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+    max-width: 100% !important; */
+  }
+}
+
+@media only screen and (max-width: 325px) {
+  .card {
+    flex-direction: column !important;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .collapse:not(.show) {
+    display: block;
+  }
+}
