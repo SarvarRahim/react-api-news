@@ -9,9 +9,10 @@ import { usePromiseTracker } from "react-promise-tracker";
      return (
        promiseInProgress &&
       <h1>LOADING...</h1>
-      
+
     );
    }
+   
 
 ReactDOM.render(
   <React.StrictMode>
