@@ -1,26 +1,42 @@
-import Books from "./books";
-import BooksList from "./components/books-list/book-list";
-import Filter from "./components/filter/filter";
-import Navbar from "./components/navbar/navbar";
+import { useEffect } from "react";
+import { useState } from "react/cjs/react.development";
+import News from "./components/form-news/form-news";
+import AddNews from "./components/news/add-news"
+// import { UserTable, LoadButton } from './components';
+// import './app.css';
+import { trackPromise } from 'react-promise-tracker';
 
 function App() {
-  console.log(Books);
+  const [news, setNews] = useState([]);
+
+  useEffect(() => {
+    trackPromise(
+      fetch('https://newsapi.org/v2/everything?' +
+      'q=Apple&' +
+      'from=2021-10-26&' +
+      'sortBy=popularity&' +
+      'apiKey=f7ec2ef392d9417cb9f3210f25d3bda5')
+      .then(response => response.json())
+      .then(data => {
+        if(data.status === 'ok') {
+          setNews(data.articles)
+        }
+      })
+    )
+
+  }, [])
+
+
+  // useEffect(() => {
+  //   console.log(`men newsga qaramman`);
+  // }, [news])
+
   return (
     <>
-    <div className="container-xl">
-    <Navbar />
-
-   <Filter />
-
-    <section className="site-hero">
-      <h2 className="site-hero__title display-4 fw-bold text-white w-50 mx-auto">A book is a gift you can open again and again.</h2>
-    </section>
-
-    <div className="books-list row my-3 mt-4">
-      {Books.map((book) => <BooksList {...book} />)}
-    </div>
-  </div>
-
+    <AddNews news={news} setNews={setNews} />
+  <ul>
+    {news.map((newws) => <News {...newws} news={news} setNews={setNews} />)}
+  </ul>
     </>
   );
 }
